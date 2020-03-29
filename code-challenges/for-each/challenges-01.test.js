@@ -7,7 +7,7 @@ Then, write a function named speaker that takes in a string and a callback funct
 ------------------------------------------------------------------------------------------------ */
 
 const greeting = (word) => {
-    return word.toUpperCase();
+  return word.toUpperCase();
 };
 
 const speaker = (message, callback) => {
@@ -27,11 +27,16 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr, value) => {
-  // Solution code here...
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
+  for (let i = 0; i < times; i++) {
+    callback(arr, num);
+
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -44,10 +49,18 @@ Return the modified array.
 
 const removeOne = (num, arr) => {
   // Solution code here...
+  if (num % 3 === 2) {
+    arr.pop(num);
+  }
 };
 
 const removeElements = (arr, callback) => {
   // Solution code here...
+  for (let i = 0; i < arr.length; i++) {
+    callback(arr[i], arr);
+
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -57,6 +70,10 @@ Write a function named removeWithForEach that produces the same output as challe
 
 const removeWithForEach = (arr, callback) => {
   // Solution code here...
+  arr.forEach((Element) => {
+    callback(Element, arr);
+  })
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -68,7 +85,15 @@ This anonymous function should accept up to three arguments: the element, the in
 
 const removeWithAnon = (arr) => {
   // Solution code here...
+  arr.forEach(anonymous);
+  return arr;
+
 };
+const anonymous = (Element, index, arr) => {
+  if (Element % 3 === 2) {
+    arr.pop(Element);
+  }
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -86,6 +111,14 @@ This function should use forEach to populate your grocery list based on the stor
 
 const createList = (availableItems) => {
   // Solution code here...
+  let intentory = [];
+  availableItems.forEach((Element) => {
+    if (Element.available === true) {
+      intentory.push(Element.name);
+    }
+
+  })
+  return intentory;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -101,7 +134,24 @@ Return the resulting output array.
 
 const fizzbuzz = (arr) => {
   // Solution code here...
-};
+  let resultarr = [];
+  arr.forEach((Element) => {
+    if (Element %5 === 0 && Element %3 === 0) {
+      resultarr.push('Fizz Buzz');
+    }
+    else if (Element %5 === 0) {
+      resultarr.push('Buzz');
+    }else if (Element %3 === 0) {
+      resultarr.push('Fizz');
+    }
+    else {
+      resultarr.push(Element);
+    }
+
+  })
+  return resultarr;
+
+ };
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
