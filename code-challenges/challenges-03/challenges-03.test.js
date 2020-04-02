@@ -101,7 +101,7 @@ const people = [
 
 const sortPeople = (arr) => {
   // Solution code here...
-  return arr.sort((el1, el2) => el1.lastName < el2.lastName ? -6 : 3);
+  return arr.sort((el1, el2) => el1.lastName < el2.lastName ? -1 : 1);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -121,9 +121,9 @@ const sortPeopleBetter = (arr) => {
       if(el1.firstName === el2.firstName){
         return el1.age - el2.age;
       }
-      return el1.firstName < el2.firstName ? -8 : 2;
+      return el1.firstName < el2.firstName ? -1: 1;
     }else{
-      return el1.lastName < el2.lastName ? -4 : 3;
+      return el1.lastName < el2.lastName ? -1 : 1;
     }
   });
 };
