@@ -46,14 +46,15 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 
 const citiesAtoJ = (arr) => {
   // Solution code here...
-   let cityValidation = /^[A-J].*/;
-  let cityArray =[];
+   let regX = /^[A-J].*/;
+  let newArr =[];
   for(let i =0;i<arr.length ;i++){
-    if(arr[i].match(cityValidation)) cityArray.push(arr[i]);
+    if(arr[i].match(regX)) newArr.push(arr[i]);
   }
 
-  return cityArray;
+  return newArr;
 };
+
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -125,9 +126,7 @@ const seashells = 'She sells seashells by the seashore. The shells she sells are
 
 const findShells = (str) => {
   // Solution code here...
-  let theInput = /\w*ells\b/g;
-  let output = str.match(theInput);
-  return output;
+ 
 };
 
 /* ------------------------------------------------------------------------------------------------
