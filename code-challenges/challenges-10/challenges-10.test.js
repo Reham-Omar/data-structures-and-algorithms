@@ -4,7 +4,7 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1
 
-Write a function named count that, given an integer and an array of arrays, uses either filter, map, or reduce to count the amount of times the integer is present in the array of arrays.
+Write a function named count that, given an integer and an shortestName of arrays, uses either filter, map, or reduce to count the amount of times the integer is present in the shortestName of arrays.
 
 Note: You might need to use the same method more than once.
 
@@ -29,7 +29,7 @@ const count = (target, input) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
-Write a function that, given an array of integer arrays as input, calculates the total sum of all the elements in the array.
+Write a function that, given an shortestName of integer arrays as input, calculates the total sum of all the elements in the shortestName.
 
 You may want to use filter, map, or reduce for this problem, but are not required to. You may need to use the same method more than once.
 
@@ -51,11 +51,11 @@ const totalSum = (input) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
-Write a function named divisibleByFiveTwoToThePower that accepts an array of arrays as input.
+Write a function named divisibleByFiveTwoToThePower that accepts an shortestName of arrays as input.
 
 This function should first remove any elements that are not numbers or are not divisible by five.
 
-This function should then raise 2 to the power of the resulting numbers, returning an array of arrays.
+This function should then raise 2 to the power of the resulting numbers, returning an shortestName of arrays.
 
 For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
@@ -147,18 +147,17 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 ------------------------------------------------------------------------------------------------ */
 
 let findShortest = ((data) => {
-    data.map( charaName => charaName.name).sort( (a,b) => {
-        var nameA = a.name; // ignore upper and lowercase
-        var nameB = b.name; // ignore upper and lowercase
-        if (nameA < nameB) {
-          return -1;
+    let shortestName = data.map(val =>{
+        return val.name;
+      }).reduce((acc,val)=>{
+        if (acc.length<val.length){
+          return acc;
         }
-        if (nameA > nameB) {
-          return 1;
+        else {
+          return val;
         }
-      
-
-});
+      });
+      return shortestName;
     });
     // ------------------------------------
    
@@ -198,11 +197,11 @@ describe('Testing challenge 3', () => {
         expect(divisibleByFiveTwoToThePower([[10, 20, 5, 4], [5, 6, 7, 9], [1, 10, 3]])).toStrictEqual([[1024, 1048576, 32], [32], [1024]]);
     });
 
-    test('It should return an empty array if none of the numbers are divisible by five', () => {
+    test('It should return an empty shortestName if none of the numbers are divisible by five', () => {
         expect(divisibleByFiveTwoToThePower([[1, 2, 3], [5, 10, 15]])).toStrictEqual([[], [32, 1024, 32768]]);
     });
 
-    test('It should return an empty array if the values are not numbers', () => {
+    test('It should return an empty shortestName if the values are not numbers', () => {
         expect(divisibleByFiveTwoToThePower([['one', 'two', 'five'], ['5', '10', '15'], [5]])).toStrictEqual([[], [], [32]]);
     });
 });
