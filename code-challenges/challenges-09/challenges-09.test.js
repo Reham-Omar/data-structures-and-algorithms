@@ -242,6 +242,11 @@ const snorlaxData = {
 
 const extractStat = (statName, arr) => {
     // Solution code here...
+    let obj = arr.reduce((acc, val) => {
+        if(val.stat.name === statName) acc = val;
+        return acc;
+      }, {});
+      return obj.stat ? obj : null;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -256,6 +261,13 @@ Write a function named extractChildren that, given the array of characters from 
 
 const extractChildren = (arr) => {
     // Solution code here...
+    return arr
+    .filter(val=>/[a]/g.test(val.name))
+    .reduce((acc, val)=>{
+      if(val.children) val.children.forEach(child=>
+        acc.push(child));
+      return acc;
+    },[]);
 };
 
 /* ------------------------------------------------------------------------------------------------

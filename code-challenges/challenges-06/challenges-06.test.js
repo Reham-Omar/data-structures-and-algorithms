@@ -159,6 +159,17 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 const houseSize = (arr) => {
     const sizes = [];
     // Solution code here...
+    arr.forEach(obj => {
+        let value = Object.values(obj);
+        let name = 1;
+        let spouse = 0;
+        if(value[1] !== null) spouse++;
+        let children = value[2].length;
+        let house = value[3];
+        let members = children + name + spouse;
+        sizes.push({ house, members});
+      });
+
     return sizes;
 };
 
@@ -183,6 +194,15 @@ const deceasedSpouses = ['Catelyn', 'Lysa', 'Robert', 'Khal Drogo', 'Alerie'];
 const houseSurvivors = (arr) => {
     const survivors = [];
     // Solution code here...
+    let spouse = 0;
+    let members = 0;
+    let house;
+    arr.forEach(obj => {
+      if(obj.spouse !== null && !deceasedSpouses.includes(obj.spouse)) spouse++;
+      house = obj.house;
+      members = obj.children.length + 1 + spouse;
+      survivors.push({ house, members});
+    });
     return survivors;
 };
 
